@@ -39,6 +39,14 @@ The ones it calls:
 Plus `ad-creative` and `social`, outside the landing-page flow but the same
 pack: ad creative, short-form video formats, static ad templates.
 
+And `screen-recording`, mine: how to record a product demo you can regenerate.
+A script drives the app headless, the camera move is applied after capture with
+ffmpeg, and the same inputs produce the same MP4, so a UI change means re-running
+it instead of re-performing it. Covers the synthetic cursor, the virtual camera,
+per-window pacing, encoding to a byte budget, and the inline-SVG device frame
+the video sits in. It explains the method with the code that implements it; you
+wire it into your own routes and fixtures.
+
 ## Phase 6 is the gap you fill
 
 Phase 6 originally pointed at project-specific skills holding design tokens,
@@ -60,7 +68,13 @@ case, re-verify against current app UI.
 
 **Device mockups with real captures** — the `image` skill, enforced by phase 5
 of `landing-page`. Real screenshots only, never AI-generated UI, real device
-proportions, a callout per mockup pointing at the feature it sells.
+proportions, a callout per mockup pointing at the feature it sells. For the
+frame itself, drawn as SVG from real device measurements,
+`screen-recording/references/device-frames.md`.
+
+**Video of the product instead of a screenshot** — `screen-recording`. Drive
+the app headless, move a synthetic cursor, apply the camera in post, encode to a
+byte budget.
 
 **Reading the actual pixels behind text** — not in this repo. That is
 `contrast-report.mjs` from HyperFrames (below): it hides each text element,
